@@ -1,0 +1,709 @@
+{
+	"info": {
+		"_postman_id": "biblioteca-api-collection",
+		"name": "Biblioteca API",
+		"description": "Coleção completa da API do sistema de Biblioteca com todos os endpoints para gerenciamento de Categorias, Livros, Usuários, Funcionários e Empréstimos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Listar todas as categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/categorias",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "categorias"]
+						}
+					}
+				},
+				{
+					"name": "Buscar categoria por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/categorias/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "categorias", "1"]
+						}
+					}
+				},
+				{
+					"name": "Criar categoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Ficção Científica\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/categorias",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "categorias"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar categoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Literatura Clássica\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/categorias/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "categorias", "1"]
+						}
+					}
+				},
+				{
+					"name": "Deletar categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/categorias/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "categorias", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Livros",
+			"item": [
+				{
+					"name": "Listar todos os livros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros"]
+						}
+					}
+				},
+				{
+					"name": "Buscar livro por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar livros por título",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/titulo/Dom Casmurro",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "titulo", "Dom Casmurro"]
+						}
+					}
+				},
+				{
+					"name": "Buscar livros por autor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/autor/Machado de Assis",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "autor", "Machado de Assis"]
+						}
+					}
+				},
+				{
+					"name": "Buscar livros por categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/categoria/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "categoria", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar livros por disponibilidade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/disponivel/true",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "disponivel", "true"]
+						}
+					}
+				},
+				{
+					"name": "Buscar livros por ano de publicação",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/ano/1899",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "ano", "1899"]
+						}
+					}
+				},
+				{
+					"name": "Criar livro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Dom Casmurro\",\n  \"autor\": \"Machado de Assis\",\n  \"anoPublicacao\": 1899,\n  \"disponivel\": true,\n  \"categoriaId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/livros",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar livro",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Dom Casmurro\",\n  \"autor\": \"Machado de Assis\",\n  \"anoPublicacao\": 1899,\n  \"disponivel\": false,\n  \"categoriaId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "1"]
+						}
+					}
+				},
+				{
+					"name": "Alterar disponibilidade do livro",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/1/disponibilidade?disponivel=false",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "1", "disponibilidade"],
+							"query": [
+								{
+									"key": "disponivel",
+									"value": "false"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Deletar livro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/livros/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "livros", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Listar todos os usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios"]
+						}
+					}
+				},
+				{
+					"name": "Buscar usuário por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar usuários por nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/nome/João Silva",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "nome", "João Silva"]
+						}
+					}
+				},
+				{
+					"name": "Buscar usuário por CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/cpf/123.456.789-00",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "cpf", "123.456.789-00"]
+						}
+					}
+				},
+				{
+					"name": "Buscar usuário por email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/email/joao@email.com",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "email", "joao@email.com"]
+						}
+					}
+				},
+				{
+					"name": "Criar usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"João Silva\",\n  \"cpf\": \"123.456.789-00\",\n  \"email\": \"joao@email.com\",\n  \"telefone\": \"(11) 99999-9999\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar usuário",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"João Santos Silva\",\n  \"cpf\": \"123.456.789-00\",\n  \"email\": \"joao.santos@email.com\",\n  \"telefone\": \"(11) 99999-8888\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1"]
+						}
+					}
+				},
+				{
+					"name": "Deletar usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "usuarios", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Funcionários",
+			"item": [
+				{
+					"name": "Listar todos os funcionários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios"]
+						}
+					}
+				},
+				{
+					"name": "Buscar funcionário por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar funcionários por nome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/nome/Maria",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "nome", "Maria"]
+						}
+					}
+				},
+				{
+					"name": "Buscar funcionários por cargo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/cargo/Bibliotecário",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "cargo", "Bibliotecário"]
+						}
+					}
+				},
+				{
+					"name": "Buscar funcionário por email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/email/maria@biblioteca.com",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "email", "maria@biblioteca.com"]
+						}
+					}
+				},
+				{
+					"name": "Buscar funcionário por username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/username/maria.silva",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "username", "maria.silva"]
+						}
+					}
+				},
+				{
+					"name": "Criar funcionário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Maria Silva\",\n  \"cargo\": \"Bibliotecário\",\n  \"email\": \"maria@biblioteca.com\",\n  \"username\": \"maria.silva\",\n  \"senha\": \"senha123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar funcionário",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Maria Santos Silva\",\n  \"cargo\": \"Bibliotecário Chefe\",\n  \"email\": \"maria.santos@biblioteca.com\",\n  \"username\": \"maria.silva\",\n  \"senha\": \"novaSenha123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "1"]
+						}
+					}
+				},
+				{
+					"name": "Deletar funcionário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "1"]
+						}
+					}
+				},
+				{
+					"name": "Login funcionário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"maria.silva\",\n  \"password\": \"senha123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/funcionarios/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "funcionarios", "login"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Empréstimos",
+			"item": [
+				{
+					"name": "Listar todos os empréstimos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos"]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimo por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimos por usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/usuario/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "usuario", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimos por livro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/livro/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "livro", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimos por status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/status/false",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "status", "false"]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimos por período",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/periodo?inicio=2024-01-01&fim=2024-12-31",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "periodo"],
+							"query": [
+								{
+									"key": "inicio",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "fim",
+									"value": "2024-12-31"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimos ativos de um usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/usuario/1/ativos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "usuario", "1", "ativos"]
+						}
+					}
+				},
+				{
+					"name": "Buscar empréstimos em atraso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/atrasados",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "atrasados"]
+						}
+					}
+				},
+				{
+					"name": "Realizar empréstimo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usuarioId\": 1,\n  \"livroId\": 1,\n  \"dataPrevistaDevolucao\": \"2024-12-31\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos"]
+						}
+					}
+				},
+				{
+					"name": "Realizar devolução",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/1/devolucao",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "1", "devolucao"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar empréstimo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usuarioId\": 1,\n  \"livroId\": 1,\n  \"dataEmprestimo\": \"2024-01-15\",\n  \"dataPrevistaDevolucao\": \"2024-02-15\",\n  \"dataDevolucao\": null,\n  \"devolvido\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "1"]
+						}
+					}
+				},
+				{
+					"name": "Deletar empréstimo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/emprestimos/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "emprestimos", "1"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
